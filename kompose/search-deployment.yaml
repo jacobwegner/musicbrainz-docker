@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: search
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: search
+    spec:
+      containers:
+      - name: search
+        resources: {}
+        volumeMounts:
+        - mountPath: /home/search/data
+          name: search-claim0
+      restartPolicy: Always
+      volumes:
+      - name: search-claim0
+        persistentVolumeClaim:
+          claimName: search-claim0
+status: {}

@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: postgresqldata
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: postgresqldata
+    spec:
+      containers:
+      - name: postgresqldata
+        resources: {}
+        volumeMounts:
+        - mountPath: /media/dbdump
+          name: postgresqldata-claim0
+      restartPolicy: Always
+      volumes:
+      - name: postgresqldata-claim0
+        persistentVolumeClaim:
+          claimName: postgresqldata-claim0
+status: {}

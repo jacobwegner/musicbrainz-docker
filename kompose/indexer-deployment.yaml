@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: indexer
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: indexer
+    spec:
+      containers:
+      - name: indexer
+        resources: {}
+        volumeMounts:
+        - mountPath: /home/search/data
+          name: indexer-claim0
+      restartPolicy: Always
+      volumes:
+      - name: indexer-claim0
+        persistentVolumeClaim:
+          claimName: indexer-claim0
+status: {}

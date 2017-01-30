@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: postgresql
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: postgresql
+    spec:
+      containers:
+      - env:
+        - name: POSTGRES_USER
+          value: musicbrainz
+        - name: POSTGRES_PASSWORD
+          value: musicbrainz
+        name: postgresql
+        resources: {}
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: postgresql-claim0
+      restartPolicy: Always
+      volumes:
+      - name: postgresql-claim0
+        persistentVolumeClaim:
+          claimName: postgresql-claim0
+status: {}
