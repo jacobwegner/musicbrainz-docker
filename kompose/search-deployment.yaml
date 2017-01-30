@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
       - name: search
+        image: musicbrainzdocker_search:latest
         resources: {}
         volumeMounts:
         - mountPath: /home/search/data

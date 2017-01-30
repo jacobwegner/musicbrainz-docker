@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
       - name: postgresqldata
+        image: musicbrainzdocker_postgresqldata:latest
         resources: {}
         volumeMounts:
         - mountPath: /media/dbdump

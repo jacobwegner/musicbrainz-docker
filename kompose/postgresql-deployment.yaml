@@ -19,6 +19,7 @@ spec:
         - name: POSTGRES_PASSWORD
           value: musicbrainz
         name: postgresql
+        image: musicbrainzdocker_postgresql:latest
         resources: {}
         volumeMounts:
         - mountPath: /var/lib/postgresql/data

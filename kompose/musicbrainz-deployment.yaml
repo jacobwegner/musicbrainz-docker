@@ -17,6 +17,7 @@ spec:
         - name: MUSICBRAINZ_USE_PROXY
           value: "1"
         name: musicbrainz
+        image: musicbrainzdocker_musicbrainz:latest
         ports:
         - containerPort: 5000
           protocol: TCP
